@@ -1,0 +1,5 @@
+# Ignorar la carpeta .mysql_data
+.mysql_data/
+
+# Ignorar el archivo .vscode
+.vscode
