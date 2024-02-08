@@ -2,7 +2,7 @@
 $init = ($pages > 0) ? (($pages*$register)-$register) : 0;
 $table = "";
 
-if (isset($search) && !empty($search)) {
+if (isset($search) && $search!='') {
     $query_data = "SELECT * FROM user WHERE ((user_id!='".$_SESSION['id']."') AND (user_name LIKE '%$search%' OR lastname LIKE '%$search%' OR user_sesion LIKE '%$search%' OR email LIKE '%$search%')) ORDER BY user_name ASC LIMIT $init,$register";
 
     $query_total = "SELECT COUNT(user_id) FROM user WHERE ((user_id!='".$_SESSION['id']."') AND (user_name LIKE '%$search%' OR lastname LIKE '%$search%' OR user_sesion LIKE '%$search%' OR email LIKE '%$search%'))";

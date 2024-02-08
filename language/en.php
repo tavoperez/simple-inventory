@@ -2,7 +2,7 @@
 # advertencias
 $warnig = '¡Ocurrio un error inesperado!';
 $success = '¡Registrado con exito!';
-$search = '¡Introduce un termino de busqueda!';
+$asearch = '¡Introduce un termino de busqueda!';
 
 # errores
 

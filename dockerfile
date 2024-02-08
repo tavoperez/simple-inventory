@@ -6,9 +6,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql
 # RUN docker-php-ext-install pdo pdo_mysql
 
-# Copiar archivos de configuración de Apache
-COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
-
 # Reiniciar Apache
 RUN service apache2 restart
 
@@ -17,3 +14,6 @@ COPY . /var/www/html
 
 # Establece los permisos de lectura y escritura en el directorio /var/www/html
 RUN chown -R 777 /var/www/html
+
+# Copiar/enlazar archivos de configuración del container Apache a mi repositorio local, dando acceso desde mi carpeta raiz
+COPY apache-config.conf /etc/apache2/sites-available/000-default.conf

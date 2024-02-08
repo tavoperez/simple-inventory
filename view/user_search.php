@@ -5,18 +5,17 @@
 
 <div class="container pb-6 pt-6">
     <?php
-        require_once"./php/db.php";
+        require_once "./php/db.php";
 
         if(isset($_POST['search_module'])){
             require_once './php/search.php';
         }
-
-        if(!isset($_SESSION['search_user']) && empty($_SESSION['search_user'])){
+        if(!isset($_SESSION['esearch_users']) && empty($_SESSION['esearch_users'])){
     ?>
     <div class="columns">
         <div class="column">
             <form action="" method="POST" autocomplete="off" >
-                <input type="hidden" name="search_module" value="user">   
+                <input type="hidden" name="search_module" value="users">   
                 <div class="field is-grouped">
                     <p class="control is-expanded">
                         <input class="input is-rounded" type="text" name="txt_search" placeholder="¿Qué estas buscando?" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" maxlength="30" >
@@ -29,14 +28,12 @@
         </div>
     </div>
     <?php }else{ ?>
-    
-
     <div class="columns">
         <div class="column">
             <form class="has-text-centered mt-6 mb-6" action="" method="POST" autocomplete="off" >
-                <input type="hidden" name="search_module" value="user"> 
-                <input type="hidden" name="search_delete" value="user">
-                <p>Estas buscando <strong>“<?php $_SESSION['search_user'] ?>”</strong></p>
+                <input type="hidden" name="search_module" value="users"> 
+                <input type="hidden" name="search_delete" value="users">
+                <p>Estas buscando <strong>“<?php echo $_SESSION['esearch_users'] ?>”</strong></p>
                 <br>
                 <button type="submit" class="button is-danger is-rounded">Eliminar busqueda</button>
             </form>
@@ -54,7 +51,7 @@
         $pages= str_clear($pages);
         $url= "index.php?view=user_search&page=";
         $register=5;
-        $search= $_SESSION['search_user'];
+        $search= $_SESSION['esearch_users'];
     
         require_once"./php/user_lists.php";
     } ?>
